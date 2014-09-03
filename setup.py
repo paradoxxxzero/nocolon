@@ -10,7 +10,7 @@ __version__ = '0.0.1'
 setup(
     name="nocolon",
     version=__version__,
-    description="**nocolon** is an utf-8 compatible encoding that removes the "
+    description="nocolon is an utf-8 compatible encoding that removes the "
     "need of colons in python files.",
     author="Florian Mounier",
     author_email="paradoxxx.zero@gmail.com",

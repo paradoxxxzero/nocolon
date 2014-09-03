@@ -59,5 +59,6 @@ while True
 If you don't want to import the nocolon from another regular python file,
 you can put the `nocolon_sys.py` file in your system directory:
 `/usr/lib/python3.4/encodings/nocolon.py` and now you can directly use
+`# -*- encoding: nocolon -*-`.
 
 I'm not responsible for endless shit happening after that!
