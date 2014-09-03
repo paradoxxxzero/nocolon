@@ -25,10 +25,12 @@ if True
 
 ```
 
+
 ## Install
 This has been tested on **python 3.4**, it could work in python 2 but as the
 code is parsed in chunks it's a bit more complicated.
 
+### The easy way
 ```bash
 pip install nocolon
 ```
@@ -51,3 +53,12 @@ import myfilewithoutcolons
 while True
     print('Freedom')
 ```
+
+### The other way
+
+If you don't want to import the nocolon from another regular python file,
+you can put the `nocolon/__init__.py` file in your system directory:
+`/usr/lib/python3.4/encodings/nocolon.py` and now you can directly use
+`# -*- encoding: nocolon -*-`.
+
+I'm not responsible for endless shit happening after that!

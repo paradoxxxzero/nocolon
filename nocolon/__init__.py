@@ -28,6 +28,16 @@ def decode(input, errors='strict', *args):
     return '\n'.join(out), l
 
 
+class IncrementalEncoder(codecs.IncrementalEncoder):
+    def encode(self, input, final=False):
+        return encode(input, self.errors)[0]
+
+
+class IncrementalDecoder(codecs.BufferedIncrementalDecoder):
+    def decode(self, input, final=False):
+        return decode(input, self.errors)[0]
+
+
 class Codec(codecs.Codec):
     def encode(self, input, errors='strict'):
         return encode(input, errors)
@@ -49,6 +59,8 @@ def getregentry():
         name='nocolon',
         encode=Codec().encode,
         decode=Codec().decode,
+        incrementalencoder=IncrementalEncoder,
+        incrementaldecoder=IncrementalDecoder,
         streamreader=StreamReader,
         streamwriter=StreamWriter
     )
