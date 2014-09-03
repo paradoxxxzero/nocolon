@@ -43,6 +43,20 @@ class StreamWriter(Codec, codecs.StreamWriter):
 class StreamReader(Codec, codecs.StreamReader):
     pass
 
-# This is very wrong:
-from encodings import _cache
-_cache['nocolon'] = (encode, decode, StreamReader, StreamWriter)
+
+def getregentry():
+    return codecs.CodecInfo(
+        name='nocolon',
+        encode=Codec().encode,
+        decode=Codec().decode,
+        streamreader=StreamReader,
+        streamwriter=StreamWriter
+    )
+
+
+def search_function(encoding):
+    if encoding == 'nocolon':
+        return (encode, decode, StreamReader, StreamWriter)
+
+
+codecs.register(search_function)
